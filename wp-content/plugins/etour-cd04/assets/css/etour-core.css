@@ -1,0 +1,20 @@
+/* E-Tourism Core – kiểu dáng tối thiểu của module; dùng biến của child theme nếu có. */
+.etour-places, .etour-form { --et-primary: var(--c-primary, #7A1F1F); --et-accent: var(--c-accent, #1E6B45); margin-block: 1.5rem; }
+.etour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.etour-card { display: flex; flex-direction: column; gap: .35rem; padding: 1rem 1.1rem; border: 1px solid #E3DCCF; border-radius: 12px; background: #fff; }
+.etour-card h3 { margin: 0; font-size: 1.1rem; color: var(--et-primary); }
+.etour-card__meta { margin: 0; font-size: .9rem; color: #5F5550; }
+.etour-card__price { margin-top: auto; font-weight: 700; color: var(--et-accent); }
+.etour-muted { color: #5F5550; }
+.etour-form { display: grid; gap: .9rem; max-width: 640px; }
+.etour-row { display: grid; gap: .9rem; grid-template-columns: 1fr; }
+@media (min-width: 576px) { .etour-row { grid-template-columns: 1fr 1fr; } }
+.etour-field { display: flex; flex-direction: column; gap: .3rem; }
+.etour-field input, .etour-field select, .etour-field textarea { padding: .6rem .7rem; border: 1px solid #BFB5A8; border-radius: 8px; font: inherit; }
+.etour-field :focus-visible { outline: 3px solid #F2B33D; outline-offset: 1px; }
+.etour-consent { flex-direction: row; align-items: flex-start; gap: .5rem; }
+.etour-btn { justify-self: start; padding: .7rem 1.4rem; border: 0; border-radius: 999px; background: var(--et-primary); color: #fff; font-weight: 700; cursor: pointer; }
+.etour-btn:hover { background: #5E1616; }
+.etour-alert { padding: .7rem 1rem; border-radius: 8px; }
+.etour-alert--ok { background: #E4F0E8; color: #14492F; }
+.etour-alert--err, .etour-error { background: #F8E3E0; color: #7A1F1F; padding: .6rem .9rem; border-radius: 8px; }

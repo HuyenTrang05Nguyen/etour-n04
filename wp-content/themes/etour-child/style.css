@@ -1,0 +1,14 @@
+/*
+Theme Name:   E-Tourism Child (Starter Kit)
+Theme URI:    https://phenikaa-uni.edu.vn/
+Description:  Child theme của Storefront dành cho Dự án E-Tourism – CSE703072. Toàn bộ CSS/JS giao diện do nhóm tự viết (không dùng Bootstrap/Tailwind/Foundation/jQuery).
+Author:       CSE703072 Starter Kit
+Template:     storefront
+Version:      1.0.0
+Requires PHP: 8.1
+Text Domain:  etour-child
+License:      GPL-2.0-or-later
+*/
+
+/* Tệp này chỉ chứa phần đầu khai báo theme. CSS thực tế nằm trong assets/css/ và được nạp theo thứ tự:
+   tokens.css (biến thiết kế) → layout.css (bố cục, responsive) → components.css (thành phần). */

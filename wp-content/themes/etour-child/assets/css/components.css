@@ -1,0 +1,29 @@
+/* =========================================================
+   COMPONENTS – nút, nhãn, bộ đếm, trạng thái focus.
+   ========================================================= */
+.etc-btn { display: inline-flex; align-items: center; justify-content: center; padding: .75rem 1.5rem; border-radius: var(--radius-pill); font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s; }
+.etc-btn--primary { background: var(--c-highlight); color: var(--c-text); }
+.etc-btn--primary:hover { background: #fff; color: var(--c-primary); }
+.etc-btn--ghost { border: 2px solid #fff; color: #fff; }
+.etc-btn--ghost:hover { background: #fff; color: var(--c-primary); }
+
+.woocommerce span.onsale { background: var(--c-highlight); color: var(--c-text); border: 0; border-radius: var(--radius-pill); font-weight: 700; }
+.woocommerce ul.products li.product .price { color: var(--c-accent); font-weight: 700; }
+.woocommerce ul.products li.product .woocommerce-loop-product__title { color: var(--c-primary); font-size: var(--fs-lg); }
+
+.etc-countdown { padding: var(--sp-2) var(--sp-4); border-left: 4px solid var(--c-highlight); background: #FBEFD2; border-radius: 6px; }
+.etc-countdown.is-ended { border-color: var(--c-muted); background: #EEE; }
+
+/* Focus nhìn thấy được khi điều hướng bằng bàn phím (WCAG 2.4.7) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--c-highlight); outline-offset: 2px;
+}
+
+/* Tôn trọng thiết lập giảm chuyển động của người dùng */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+
+/* Nút lên đầu trang (main.js) */
+.etc-top { position: fixed; right: var(--sp-4); bottom: calc(var(--sp-4) + 64px); width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--c-primary); color: #fff; font-size: 1.25rem; box-shadow: var(--shadow); cursor: pointer; z-index: 50; }
+.etc-top:hover { background: var(--c-primary-dark); }

@@ -1,0 +1,53 @@
+/* =========================================================
+   LAYOUT – bố cục trang và lưới sản phẩm (mobile-first).
+   Breakpoint chuẩn dự án: Mobile ≤ 575px · Tablet 576–991px · Desktop ≥ 992px
+   ========================================================= */
+body { font-family: var(--f-base); color: var(--c-text); background: var(--c-bg); }
+html, body { overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+
+/* ---------- Hero ---------- */
+.etc-hero { background: linear-gradient(135deg, var(--c-primary-dark), var(--c-primary) 60%, var(--c-accent)); color: #fff; padding-block: var(--sp-12); margin-bottom: var(--sp-8); }
+.etc-hero__inner { display: flex; flex-direction: column; gap: var(--sp-4); }
+.etc-hero__eyebrow { margin: 0; font-size: var(--fs-sm); letter-spacing: .12em; text-transform: uppercase; color: var(--c-highlight); font-weight: 700; }
+.etc-hero__title { margin: 0; font-size: var(--fs-xl); line-height: 1.15; color: #fff; }
+.etc-hero__lead { margin: 0; max-width: 60ch; font-size: var(--fs-lg); }
+.etc-hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+
+/* ---------- Lưới sản phẩm WooCommerce: thay float của Storefront bằng CSS Grid ---------- */
+.woocommerce ul.products,
+.woocommerce-page ul.products {
+  display: grid;
+  grid-template-columns: 1fr;            /* Mobile: 1 cột */
+  gap: var(--sp-6);
+  margin: 0 0 var(--sp-8);
+}
+.woocommerce ul.products::before,
+.woocommerce ul.products::after { content: none; } /* bỏ clearfix của float */
+.woocommerce ul.products li.product {
+  width: 100% !important; margin: 0 !important; float: none !important;
+  display: flex; flex-direction: column;  /* Flexbox trong từng thẻ: nút luôn nằm đáy */
+  background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius);
+  padding: var(--sp-4); box-shadow: var(--shadow); text-align: left;
+}
+.woocommerce ul.products li.product img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(var(--radius) - 4px); margin-bottom: var(--sp-3); }
+.woocommerce ul.products li.product .button { margin-top: auto; }
+
+/* Tablet: 2 cột */
+@media (min-width: 576px) {
+  .woocommerce ul.products, .woocommerce-page ul.products { grid-template-columns: repeat(2, 1fr); }
+}
+/* Desktop: 3 cột (4 cột khi màn hình rộng) */
+@media (min-width: 992px) {
+  .woocommerce ul.products, .woocommerce-page ul.products { grid-template-columns: repeat(3, 1fr); }
+  .etc-hero { padding-block: calc(var(--sp-12) * 1.6); }
+}
+@media (min-width: 1280px) {
+  .woocommerce ul.products.columns-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ---------- Chân trang ---------- */
+.etc-disclaimer { margin: var(--sp-4) 0 0; font-size: var(--fs-sm); color: var(--c-muted); }
+
+/* Trang chủ: ẩn tiêu đề trang tĩnh (đã có hero) */
+.home.page .entry-header { display: none; }

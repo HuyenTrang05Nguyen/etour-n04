@@ -1,0 +1,35 @@
+# 1. Chặn toàn bộ thư mục và tệp gốc của WordPress
+wp-admin/
+wp-includes/
+wp-*.php
+index.php
+xmlrpc.php
+*.html
+*.txt
+.htaccess
+wp-config.php
+
+# 2. Chặn thư mục tải lên và rác của wp-content
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/languages/
+wp-content/index.php
+*.log
+*.sql.gz
+.env
+
+# 3. CHẶN TOÀN BỘ THEMES KHÁC (Chỉ giữ lại duy nhất etour-child)
+wp-content/themes/*
+!wp-content/themes/etour-child/
+
+# 4. CHẶN TOÀN BỘ PLUGINS KHÁC (Chỉ giữ lại duy nhất etour-cd04)
+wp-content/plugins/*
+!wp-content/plugins/etour-cd04/
+
+# 5. Rác hệ thống
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/
