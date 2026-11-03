@@ -1,53 +1,248 @@
-/* =========================================================
-   LAYOUT – bố cục trang và lưới sản phẩm (mobile-first).
-   Breakpoint chuẩn dự án: Mobile ≤ 575px · Tablet 576–991px · Desktop ≥ 992px
-   ========================================================= */
-body { font-family: var(--f-base); color: var(--c-text); background: var(--c-bg); }
-html, body { overflow-x: hidden; }
-img { max-width: 100%; height: auto; }
+/**
+ * Layout & Responsive - Chuẩn YC06 cho CD04 (Miệt Vườn Xanh)
+ * 1. Triệt tiêu cuộn ngang ở màn hình 360px
+ * 2. Lưới sản phẩm CSS Grid 1-2-3 cột
+ * 3. Giao diện khối Hero Banner sinh thái
+ */
 
-/* ---------- Hero ---------- */
-.etc-hero { background: linear-gradient(135deg, var(--c-primary-dark), var(--c-primary) 60%, var(--c-accent)); color: #fff; padding-block: var(--sp-12); margin-bottom: var(--sp-8); }
-.etc-hero__inner { display: flex; flex-direction: column; gap: var(--sp-4); }
-.etc-hero__eyebrow { margin: 0; font-size: var(--fs-sm); letter-spacing: .12em; text-transform: uppercase; color: var(--c-highlight); font-weight: 700; }
-.etc-hero__title { margin: 0; font-size: var(--fs-xl); line-height: 1.15; color: #fff; }
-.etc-hero__lead { margin: 0; max-width: 60ch; font-size: var(--fs-lg); }
-.etc-hero__actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+/* ==========================================================================
+   1. CHỐNG CUỘN NGANG MÀN HÌNH 360PX (YC06)
+   ========================================================================== */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
-/* ---------- Lưới sản phẩm WooCommerce: thay float của Storefront bằng CSS Grid ---------- */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ==========================================================================
+   2. KHỐI HERO BANNER TRANG CHỦ
+   ========================================================================== */
+.cd04-hero {
+  /* Sử dụng chính bức ảnh xuồng chèo miệt vườn từ dataset */
+  background-image: url('../../../../uploads/etour-dataset/CD04_mietvuon/images/cd04-001.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: var(--radius, 12px);
+  margin-bottom: var(--sp-8, 2rem);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Lớp phủ tối mờ: Giúp chữ trắng đạt tương phản WCAG 2.2 AA (>= 4.5:1) */
+.cd04-hero__overlay {
+  background: linear-gradient(180deg, rgba(15, 35, 20, 0.55) 0%, rgba(10, 25, 15, 0.75) 100%);
+  padding: clamp(2.5rem, 5vw, 5rem) 1.5rem;
+  text-align: center;
+}
+
+.cd04-hero__container {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.cd04-hero__badge {
+  display: inline-block;
+  background-color: var(--c-accent, #c65102);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full, 9999px);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.cd04-hero__title {
+  color: #ffffff !important;
+  font-size: var(--fs-xl, clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem));
+  font-weight: 800;
+  line-height: 1.25;
+  margin: 0 0 1rem 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.cd04-hero__desc {
+  color: #f1f5f9;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 1.75rem auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Hàng nút bấm */
+.cd04-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cd04-btn {
+  padding: 0.75rem 1.75rem !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+  border-radius: var(--radius-sm, 6px) !important;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.cd04-btn--primary {
+  background-color: var(--c-primary, #1b6e39) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--c-primary, #1b6e39) !important;
+}
+
+.cd04-btn--primary:hover {
+  background-color: var(--c-primary-hover, #14532b) !important;
+  border-color: var(--c-primary-hover, #14532b) !important;
+}
+
+.cd04-btn--outline {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+.cd04-btn--outline:hover {
+  background-color: #ffffff !important;
+  color: var(--c-primary, #1b6e39) !important;
+}
+
+/* Ô tìm tour nhanh */
+.cd04-hero__search {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.cd04-search-box {
+  display: flex;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm, 6px);
+  overflow: hidden;
+}
+
+.cd04-search-input {
+  flex: 1;
+  padding: 0.85rem 1.25rem !important;
+  border: none !important;
+  font-size: 1rem;
+  outline: none;
+  background: #ffffff;
+  color: #1e293b;
+}
+
+.cd04-search-submit {
+  background-color: var(--c-primary, #1b6e39);
+  color: #ffffff;
+  border: none;
+  padding: 0 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cd04-search-submit:hover {
+  background-color: var(--c-primary-hover, #14532b);
+}
+
+/* ==========================================================================
+   3. LƯỚI SẢN PHẨM CSS GRID (Mobile First: 1 Cột) - Chuẩn YC06
+   ========================================================================== */
 .woocommerce ul.products,
 .woocommerce-page ul.products {
   display: grid;
-  grid-template-columns: 1fr;            /* Mobile: 1 cột */
-  gap: var(--sp-6);
-  margin: 0 0 var(--sp-8);
+  grid-template-columns: 1fr; /* Mobile <= 575px: 1 cột */
+  gap: var(--sp-6, 1.5rem);
+  margin: 0 0 var(--sp-8, 2rem) 0;
+  padding: 0;
+  list-style: none;
 }
+
+/* Bỏ hoàn toàn clearfix của float Storefront */
 .woocommerce ul.products::before,
-.woocommerce ul.products::after { content: none; } /* bỏ clearfix của float */
+.woocommerce ul.products::after {
+  content: none !important;
+}
+
+/* Từng thẻ tour (Card) */
 .woocommerce ul.products li.product {
-  width: 100% !important; margin: 0 !important; float: none !important;
-  display: flex; flex-direction: column;  /* Flexbox trong từng thẻ: nút luôn nằm đáy */
-  background: var(--c-surface); border: 1px solid var(--c-border); border-radius: var(--radius);
-  padding: var(--sp-4); box-shadow: var(--shadow); text-align: left;
-}
-.woocommerce ul.products li.product img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: calc(var(--radius) - 4px); margin-bottom: var(--sp-3); }
-.woocommerce ul.products li.product .button { margin-top: auto; }
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
 
-/* Tablet: 2 cột */
+  display: flex;
+  flex-direction: column; /* Nút xem tour luôn nằm đáy */
+
+  background-color: var(--c-surface, #ffffff);
+  border: 1px solid var(--c-border, #e2e8f0);
+  border-radius: var(--radius, 12px);
+  padding: var(--sp-4, 1rem);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.woocommerce ul.products li.product:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Cắt ảnh tỉ lệ 4:3 chống giật giao diện (CLS) */
+.woocommerce ul.products li.product img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: calc(var(--radius, 12px) - 4px);
+  width: 100%;
+  margin-bottom: var(--sp-3, 0.75rem);
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+  font-size: var(--fs-md, 1.125rem);
+  color: var(--c-text, #19241c);
+  margin: 0 0 var(--sp-2, 0.5rem) 0;
+  line-height: 1.4;
+}
+
+.woocommerce ul.products li.product .price {
+  color: var(--c-accent, #c65102);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: var(--sp-4, 1rem);
+}
+
+.woocommerce ul.products li.product .button {
+  margin-top: auto !important;
+  width: 100%;
+  text-align: center;
+  border-radius: var(--radius-sm, 6px);
+}
+
+/* ==========================================================================
+   4. CÁC BREAKPOINTS ĐÁP ỨNG (Tablet & Desktop)
+   ========================================================================== */
+
+/* Tablet (576px - 991px): 2 cột */
 @media (min-width: 576px) {
-  .woocommerce ul.products, .woocommerce-page ul.products { grid-template-columns: repeat(2, 1fr); }
+  .woocommerce ul.products,
+  .woocommerce-page ul.products {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-/* Desktop: 3 cột (4 cột khi màn hình rộng) */
+
+/* Desktop (>= 992px): 3 cột */
 @media (min-width: 992px) {
-  .woocommerce ul.products, .woocommerce-page ul.products { grid-template-columns: repeat(3, 1fr); }
-  .etc-hero { padding-block: calc(var(--sp-12) * 1.6); }
+  .woocommerce ul.products,
+  .woocommerce-page ul.products {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-@media (min-width: 1280px) {
-  .woocommerce ul.products.columns-4 { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* ---------- Chân trang ---------- */
-.etc-disclaimer { margin: var(--sp-4) 0 0; font-size: var(--fs-sm); color: var(--c-muted); }
-
-/* Trang chủ: ẩn tiêu đề trang tĩnh (đã có hero) */
-.home.page .entry-header { display: none; }
