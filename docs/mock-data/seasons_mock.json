@@ -1,0 +1,42 @@
+{
+  "count": 4,
+  "month": 6,
+  "items": [
+    {
+      "id": 1,
+      "province": "Cần Thơ",
+      "item_name": "Chôm chôm & Măng cụt Phong Điền",
+      "item_type": "trai_cay",
+      "month_from": 5,
+      "month_to": 7,
+      "description": "Vườn trái cây chín rộ, du khách được tự tay hái và thưởng thức tại chỗ."
+    },
+    {
+      "id": 2,
+      "province": "Tiền Giang",
+      "item_name": "Sầu riêng Cái Mơn - Ngũ Hiệp",
+      "item_type": "trai_cay",
+      "month_from": 5,
+      "month_to": 8,
+      "description": "Thủ phủ sầu riêng vào mùa thu hoạch rộ nhất trong năm."
+    },
+    {
+      "id": 3,
+      "province": "An Giang",
+      "item_name": "Lễ hội Vía Bà Chúa Xứ Núi Sam",
+      "item_type": "le_hoi",
+      "month_from": 4,
+      "month_to": 6,
+      "description": "Lễ hội tâm linh lớn nhất vùng Tây Nam Bộ, thu hút đông đảo du khách."
+    },
+    {
+      "id": 4,
+      "province": "Đồng Tháp",
+      "item_name": "Mùa hoa sen Tháp Mười",
+      "item_type": "canh_quan",
+      "month_from": 11,
+      "month_to": 2,
+      "description": "Đồng sen nở rộ thơm ngát (dữ liệu kiểm thử trường hợp mùa vắt qua năm)."
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "month": 6,
+  "count": 2,
+  "tours": [
+    {
+      "sku": "CD04-001",
+      "name": "Tour Cần Thơ: Chợ nổi Cái Răng – Vườn trái cây Phong Điền",
+      "price": "850.000 ₫ – 1.450.000 ₫",
+      "permalink": "/san-pham/tour-can-tho-cho-noi-cai-rang/",
+      "image": "/wp-content/uploads/etour-dataset/CD04_mietvuon/images/cd04-001.jpg"
+    },
+    {
+      "sku": "CD04-002",
+      "name": "Tour Bến Tre: Du ngoạn cù lao Thới Sơn – Chèo xuồng ba lá",
+      "price": "650.000 ₫ – 1.200.000 ₫",
+      "permalink": "/san-pham/tour-ben-tre-cu-lao-thoi-son/",
+      "image": "/wp-content/uploads/etour-dataset/CD04_mietvuon/images/cd04-002.jpg"
+    }
+  ]
+}
