@@ -1,0 +1,21 @@
+id,province,item_name,item_type,month_from,month_to,description
+1,Tiền Giang,Sầu riêng,trái cây,4,7,Sầu riêng tại Tiền Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+2,Bến Tre,Chôm chôm,trái cây,5,8,Chôm chôm tại Bến Tre – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+3,Cần Thơ,Mùa trái cây Phong Điền,trái cây,5,8,Mùa trái cây Phong Điền tại Cần Thơ – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+4,Vĩnh Long,Chôm chôm Bình Hòa Phước,trái cây,5,7,Chôm chôm Bình Hòa Phước tại Vĩnh Long – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+5,Đồng Tháp,Xoài cát Hòa Lộc,trái cây,3,6,Xoài cát Hòa Lộc tại Đồng Tháp – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+6,An Giang,Mùa nước nổi,cảnh quan,9,11,Mùa nước nổi tại An Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+7,Đồng Tháp,Mùa sen Tháp Mười,cảnh quan,5,9,Mùa sen Tháp Mười tại Đồng Tháp – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+8,An Giang,Rừng tràm Trà Sư xanh mướt,cảnh quan,8,11,Rừng tràm Trà Sư xanh mướt tại An Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+9,Đồng Tháp,Làng hoa Sa Đéc chuẩn bị Tết,cảnh quan,11,2,Làng hoa Sa Đéc chuẩn bị Tết tại Đồng Tháp – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+10,Cà Mau,Mùa ba khía,trái cây,10,12,Mùa ba khía tại Cà Mau – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+11,Bến Tre,Mùa dừa quanh năm,trái cây,1,12,Mùa dừa quanh năm tại Bến Tre – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+12,Tiền Giang,Thanh long Chợ Gạo,trái cây,3,8,Thanh long Chợ Gạo tại Tiền Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+13,Cần Thơ,Chợ nổi Cái Răng nhộn nhịp cuối năm,cảnh quan,11,1,Chợ nổi Cái Răng nhộn nhịp cuối năm tại Cần Thơ – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+14,Bạc Liêu,Lễ hội dưa hấu,lễ hội,12,1,Lễ hội dưa hấu tại Bạc Liêu – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+15,An Giang,Lễ hội Bà Chúa Xứ,lễ hội,4,5,Lễ hội Bà Chúa Xứ tại An Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+16,Sóc Trăng,Lễ hội Ok Om Bok,lễ hội,10,11,Lễ hội Ok Om Bok tại Sóc Trăng – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+17,Vĩnh Long,Mùa lúa chín,cảnh quan,2,3,Mùa lúa chín tại Vĩnh Long – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+18,Hậu Giang,Mùa khóm (dứa),trái cây,3,6,Mùa khóm (dứa) tại Hậu Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+19,Trà Vinh,Mùa dừa sáp,trái cây,6,9,Mùa dừa sáp tại Trà Vinh – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
+20,Kiên Giang,Mùa biển êm Hà Tiên,cảnh quan,11,4,Mùa biển êm Hà Tiên tại Kiên Giang – mô tả mô phỏng; nhóm cần đối chiếu nguồn địa phương.
