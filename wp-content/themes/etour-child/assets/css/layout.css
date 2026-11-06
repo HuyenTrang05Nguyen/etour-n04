@@ -181,8 +181,8 @@ img {
   width: 100% !important;
   margin: 0 !important;
 
-  display: flex;
-  flex-direction: column; /* Nút xem tour luôn nằm đáy */
+  display: flex !important;
+  flex-direction: column !important; /* Nút xem tour luôn nằm đáy */
 
   background-color: var(--c-surface, #ffffff);
   border: 1px solid var(--c-border, #e2e8f0);
@@ -190,6 +190,8 @@ img {
   padding: var(--sp-4, 1rem);
   box-shadow: var(--shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .woocommerce ul.products li.product:hover {
@@ -197,13 +199,39 @@ img {
   box-shadow: var(--shadow-hover);
 }
 
-/* Cắt ảnh tỉ lệ 4:3 chống giật giao diện (CLS) */
+.woocommerce ul.products li.product .woocommerce-LoopProduct-link {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  text-decoration: none !important;
+  position: relative !important;
+}
+
+/* Nhãn Sale cố định góc trên ảnh */
+.woocommerce ul.products li.product .onsale {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  margin: 0 !important;
+  padding: 0.35em 0.7em !important;
+  background-color: var(--c-accent, #c65102) !important;
+  color: #ffffff !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  border-radius: 4px !important;
+  line-height: 1 !important;
+  z-index: 9 !important;
+}
+
+/* Cắt ảnh tỉ lệ 1:1 đồng đều chống giật giao diện (CLS) */
 .woocommerce ul.products li.product img {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: calc(var(--radius, 12px) - 4px);
   width: 100%;
   margin-bottom: var(--sp-3, 0.75rem);
+  display: block;
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-product__title {
@@ -211,6 +239,13 @@ img {
   color: var(--c-text, #19241c);
   margin: 0 0 var(--sp-2, 0.5rem) 0;
   line-height: 1.4;
+  min-height: 2.8em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .woocommerce ul.products li.product .price {
@@ -218,6 +253,13 @@ img {
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: var(--sp-4, 1rem);
+  min-height: 2.2em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+  text-align: center;
 }
 
 .woocommerce ul.products li.product .button {
@@ -225,6 +267,8 @@ img {
   width: 100%;
   text-align: center;
   border-radius: var(--radius-sm, 6px);
+  padding: 0.65em 1em;
+  box-sizing: border-box;
 }
 
 /* ==========================================================================
@@ -245,4 +289,279 @@ img {
   .woocommerce-page ul.products {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* ==========================================================================
+   5. MENU HAI DÒNG – "Đi miền Tây tháng nào?" xuống hàng riêng (YC)
+   ========================================================================== */
+
+/* Desktop (≥768px): cho phép menu items wrap xuống 2 dòng */
+@media (min-width: 768px) {
+  .main-navigation .primary-navigation ul.nav-menu {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center;
+  }
+
+  /* Item cuối cùng (Đi miền Tây tháng nào?) chiếm toàn bộ dòng thứ 2 */
+  .main-navigation .primary-navigation ul.nav-menu > li:last-child {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 0.25em;
+    margin-top: 0.1em;
+  }
+}
+
+/* ==========================================================================
+   6. SIDEBAR TOÀN CỤC – Đồng hồ đếm ngược + Form tư vấn
+   ========================================================================== */
+.etour-global-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	position: sticky;
+	top: 2rem;
+}
+
+/* Trên mobile sidebar xuống dưới, không sticky */
+@media (max-width: 767px) {
+	.etour-global-sidebar {
+		position: static;
+	}
+}
+
+/* ==========================================================================
+   7. SECTION TOUR KHUYẾN MÃI & NỔI BẬT (Trang chủ)
+   ========================================================================== */
+.etc-featured-tours {
+  padding: 2rem 0;
+  max-width: 100%;
+}
+
+.etc-featured-tours__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.etc-featured-tours__title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--c-text, #1e293b);
+  margin: 0;
+}
+
+.etc-featured-tours__actions {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.etc-featured-sort {
+  padding: .4rem .75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: .875rem;
+  cursor: pointer;
+}
+
+.etc-view-all-btn {
+  padding: .4rem 1rem;
+  border: 1px solid var(--c-primary, #16a34a);
+  color: var(--c-primary, #16a34a);
+  border-radius: 999px;
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all .15s;
+}
+.etc-view-all-btn:hover {
+  background: var(--c-primary, #16a34a);
+  color: #fff;
+}
+
+/* Grid 3 cột tour card */
+.etc-featured-tours__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 900px) {
+  .etc-featured-tours__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 576px) {
+  .etc-featured-tours__grid { grid-template-columns: 1fr; }
+}
+
+/* Tour card */
+.etc-tour-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+  transition: transform .2s, box-shadow .2s;
+  display: flex;
+  flex-direction: column;
+}
+.etc-tour-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(22,163,74,.12);
+}
+
+.etc-tour-card__img {
+  position: relative;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #15803d 0%, #713f12 100%);
+  overflow: hidden;
+}
+
+.etc-tour-card__img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.etc-tour-card__img-placeholder {
+  width: 100%; height: 100%;
+  background: linear-gradient(135deg, #15803d 60%, #92400e 100%);
+}
+
+.etc-tour-card__badge {
+  position: absolute; top: .5rem; left: .5rem;
+  background: #d97706; color: #fff;
+  font-size: .72rem; font-weight: 700;
+  padding: .2rem .5rem; border-radius: 4px;
+  text-transform: uppercase; z-index: 1;
+}
+
+.etc-tour-card__sku {
+  position: absolute; top: .5rem; left: .5rem;
+  font-size: .72rem; font-weight: 600; color: #fff;
+  background: rgba(0,0,0,.45);
+  padding: .15rem .4rem; border-radius: 3px;
+  z-index: 1;
+}
+
+.etc-tour-card__badge + .etc-tour-card__sku,
+.etc-tour-card__badge ~ .etc-tour-card__sku {
+  top: 2rem;
+}
+
+.etc-tour-card__months {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,.55);
+  color: #fff; font-size: .72rem; font-weight: 500;
+  padding: .3rem .5rem;
+}
+
+.etc-tour-card__body {
+  padding: .85rem 1rem;
+  display: flex; flex-direction: column; gap: .3rem;
+  flex: 1;
+}
+
+.etc-tour-card__cat {
+  display: inline-block;
+  background: #f0fdf4; color: #15803d;
+  font-size: .75rem; font-weight: 700;
+  padding: .15rem .45rem; border-radius: 4px;
+  border: 1px solid #bbf7d0;
+}
+
+.etc-tour-card__title {
+  font-size: .95rem; font-weight: 700; margin: .1rem 0;
+  line-height: 1.4;
+}
+.etc-tour-card__title a {
+  color: var(--c-text, #1e293b); text-decoration: none;
+}
+.etc-tour-card__title a:hover { color: var(--c-primary, #16a34a); }
+
+.etc-tour-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+.etc-tour-card__tag {
+  font-size: .72rem; color: #6b7280;
+  background: #f9fafb; border: 1px solid #e5e7eb;
+  padding: .1rem .4rem; border-radius: 4px;
+}
+
+.etc-tour-card__price { margin-top: auto; padding-top: .25rem; }
+.etc-tour-card__regular del { color: #9ca3af; font-size: .85rem; }
+.etc-tour-card__sale { color: var(--c-accent, #c65102); font-weight: 700; font-size: 1rem; }
+.etc-tour-card__sale .woocommerce-Price-amount { color: var(--c-accent, #c65102); }
+
+/* ==========================================================================
+   8. FOOTER 3 CỘT (theo mockup)
+   ========================================================================== */
+.etc-footer-widgets {
+  background: #1e1e1e;
+  color: #d1d5db;
+  padding: 3rem 0 1.5rem;
+}
+
+.etc-footer-widgets__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .etc-footer-widgets__inner { grid-template-columns: 1fr; }
+}
+
+.etc-footer-col__title {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 .75rem;
+}
+
+.etc-footer-col p {
+  font-size: .875rem;
+  line-height: 1.65;
+  color: #9ca3af;
+  margin: 0;
+}
+
+.etc-footer-col ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: .4rem;
+}
+
+.etc-footer-col ul li { font-size: .875rem; color: #9ca3af; }
+.etc-footer-col ul li::before { content: '• '; color: #6b7280; }
+.etc-footer-col ul a { color: #9ca3af; text-decoration: none; }
+.etc-footer-col ul a:hover { color: #fff; text-decoration: underline; }
+
+.etc-footer-divider {
+  border: none; border-top: 1px solid #374151;
+  max-width: 1200px; margin: 1.5rem auto 1rem;
+}
+
+.etc-disclaimer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 1.5rem;
+  text-align: center;
+  color: #d97706;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* ==========================================================================
+   9. TRANG CỬA HÀNG – Full width, không có sidebar
+   ========================================================================== */
+.woocommerce-shop .site-main,
+.woocommerce-page .site-main {
+  width: 100% !important;
+  float: none !important;
 }

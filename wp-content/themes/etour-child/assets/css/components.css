@@ -1,15 +1,96 @@
 /* =========================================================
    COMPONENTS – nút, nhãn, bộ đếm, trạng thái focus.
    ========================================================= */
-.etc-btn { display: inline-flex; align-items: center; justify-content: center; padding: .75rem 1.5rem; border-radius: var(--radius-pill); font-weight: 700; text-decoration: none; transition: background-color .2s, color .2s; }
-.etc-btn--primary { background: var(--c-highlight); color: var(--c-text); }
-.etc-btn--primary:hover { background: #fff; color: var(--c-primary); }
-.etc-btn--ghost { border: 2px solid #fff; color: #fff; }
-.etc-btn--ghost:hover { background: #fff; color: var(--c-primary); }
+.etc-btn { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  padding: .75rem 1.5rem; 
+  border-radius: var(--radius-sm, 8px); 
+  font-weight: 700; 
+  text-decoration: none; 
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+}
+.etc-btn--primary { 
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-primary-hover) 100%); 
+  color: #ffffff; 
+}
+.etc-btn--primary:hover { 
+  background: linear-gradient(135deg, var(--c-primary-hover) 0%, #14532d 100%); 
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.4);
+}
+.etc-btn--ghost { 
+  border: 2px solid #fff; 
+  color: #fff; 
+  background: transparent;
+}
+.etc-btn--ghost:hover { 
+  background: #fff; 
+  color: var(--c-primary); 
+  transform: translateY(-2px);
+}
 
-.woocommerce span.onsale { background: var(--c-highlight); color: var(--c-text); border: 0; border-radius: var(--radius-pill); font-weight: 700; }
-.woocommerce ul.products li.product .price { color: var(--c-accent); font-weight: 700; }
-.woocommerce ul.products li.product .woocommerce-loop-product__title { color: var(--c-primary); font-size: var(--fs-lg); }
+/* Nút bấm mua hàng trên lưới sản phẩm */
+.woocommerce ul.products li.product .button {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  border-radius: var(--radius-sm, 6px) !important;
+  padding: 0.7rem 1rem !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3) !important;
+  transition: all 0.2s ease !important;
+}
+
+.woocommerce ul.products li.product .button:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.45) !important;
+  transform: translateY(-1px);
+}
+
+.woocommerce span.onsale { 
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important; 
+  color: #ffffff !important; 
+  border: 0 !important; 
+  border-radius: var(--radius-full, 9999px) !important; 
+  font-weight: 700 !important;
+  box-shadow: 0 4px 10px rgba(234, 88, 12, 0.4) !important;
+}
+
+.woocommerce ul.products li.product .price { 
+  color: var(--c-accent); 
+  font-weight: 800; 
+  font-size: 1.1rem;
+}
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title { 
+  color: #1e293b; 
+  font-size: 1.05rem;
+  font-weight: 700;
+  transition: color 0.2s ease;
+}
+
+.woocommerce ul.products li.product:hover .woocommerce-loop-product__title {
+  color: var(--c-primary);
+}
+
+/* Phân trang hiện đại */
+.woocommerce-pagination ul.page-numbers li .page-numbers {
+  border-radius: var(--radius-sm, 6px) !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
+}
+
+.woocommerce-pagination ul.page-numbers li .page-numbers.current {
+  background: var(--c-primary) !important;
+  border-color: var(--c-primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3) !important;
+}
 
 .etc-countdown { padding: var(--sp-2) var(--sp-4); border-left: 4px solid var(--c-highlight); background: #FBEFD2; border-radius: 6px; }
 .etc-countdown.is-ended { border-color: var(--c-muted); background: #EEE; }
@@ -26,4 +107,69 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 
 /* Nút lên đầu trang (main.js) */
 .etc-top { position: fixed; right: var(--sp-4); bottom: calc(var(--sp-4) + 64px); width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--c-primary); color: #fff; font-size: 1.25rem; box-shadow: var(--shadow); cursor: pointer; z-index: 50; }
-.etc-top:hover { background: var(--c-primary-dark); }
+.etc-top:hover { background: var(--c-primary-hover, #15803d); }
+
+/* ==========================================================================
+   HEADER – Override màu Storefront sang trắng/kem theo mockup
+   ========================================================================== */
+.site-header {
+  background-color: #f8f5f0 !important;
+  color: var(--c-text, #1e293b) !important;
+  border-bottom: 1px solid #e2dcd3 !important;
+  padding-top: .75rem !important;
+  padding-bottom: .75rem !important;
+}
+
+/* Logo / tên site */
+.site-header .site-title a,
+.site-header .site-description {
+  color: var(--c-text, #1e293b) !important;
+}
+
+/* Navigation bar (storefront-primary-navigation) */
+.storefront-primary-navigation {
+  background-color: #f8f5f0 !important;
+  border-top: 1px solid #e2dcd3 !important;
+}
+
+.main-navigation ul li a {
+  color: var(--c-text, #1e293b) !important;
+}
+
+.main-navigation ul li a:hover,
+.main-navigation ul li.current-menu-item > a {
+  color: var(--c-primary, #16a34a) !important;
+}
+
+/* Header cart */
+.site-header .site-header-cart .cart-contents {
+  color: var(--c-text, #1e293b) !important;
+}
+
+/* Header logo badge N04 (nếu có) */
+.etc-header-badge {
+  display: inline-block;
+  background: var(--c-primary, #16a34a);
+  color: #fff;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: .15rem .4rem;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: .3rem;
+}
+
+/* ==========================================================================
+   TRANG SHOP – Full width không sidebar, tiêu đề tùy chỉnh
+   ========================================================================== */
+.woocommerce-shop #primary,
+.woocommerce-page.woocommerce-shop #primary {
+  width: 100% !important;
+  float: none !important;
+}
+
+/* Ẩn tiêu đề mặc định "Cửa hàng" của WooCommerce */
+.woocommerce-shop .woocommerce-products-header__title,
+.woocommerce-shop .page-title {
+  display: none;
+}

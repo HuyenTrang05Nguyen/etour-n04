@@ -6,9 +6,9 @@
   /* ==========================================================================
      1. BẢNG MÀU CHỦ ĐẠO (Đạt chuẩn tương phản WCAG 2.2 AA >= 4.5:1)
      ========================================================================== */
-  /* Màu chủ đạo: Xanh lá vườn cây đậm nét phù sa (dùng cho tiêu đề, nút chính, header) */
-  --c-primary: #1b6e39;
-  --c-primary-hover: #14532b;
+  /* Màu chủ đạo: Xanh lá tươi mát hiện đại (dùng cho tiêu đề, nút chính, header) */
+  --c-primary: #16a34a;
+  --c-primary-hover: #15803d;
 
   /* Màu nhấn: Cam phù sa / màu trái cây chín (dùng cho giá tour, tag nổi bật) */
   --c-accent: #c65102;
@@ -18,20 +18,20 @@
   --c-highlight: #d97706;
 
   /* Màu nền trang: Trắng kem dịu mắt, phớt sắc sinh thái */
-  --c-bg: #f9fbf9;
+  --c-bg: #f8fafc;
 
   /* Màu nền thẻ/khối (Card surface): Trắng tinh để tạo độ tương phản */
   --c-surface: #ffffff;
   --c-border: #e2e8f0;
 
-  /* Màu chữ: Chữ đậm sẫm màu (Tương phản ~14:1 trên nền trắng) */
-  --c-text: #19241c;
+  /* Màu chữ: Chữ sẫm màu dễ đọc (Tương phản ~14:1 trên nền trắng) */
+  --c-text: #1e293b;
 
   /* Màu chữ phụ: Xám trung tính (Tương phản ~7.5:1 trên nền trắng) */
-  --c-muted: #4b5563;
+  --c-muted: #64748b;
 
   /* Màu trạng thái nghiệp vụ */
-  --c-success: #15803d;
+  --c-success: #16a34a;
   --c-warning: #b45309;
   --c-danger: #b91c1c;
 
@@ -65,6 +65,6 @@
   --radius-full: 9999px;
 
   /* Đổ bóng thẻ sản phẩm nhẹ nhàng */
-  --shadow: 0 4px 16px rgba(27, 110, 57, 0.08);
-  --shadow-hover: 0 8px 24px rgba(27, 110, 57, 0.16);
+  --shadow: 0 4px 16px rgba(22, 163, 74, 0.08);
+  --shadow-hover: 0 8px 24px rgba(22, 163, 74, 0.16);
 }
