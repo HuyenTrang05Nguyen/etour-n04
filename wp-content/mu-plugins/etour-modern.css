@@ -1,0 +1,566 @@
+/**
+ * E-Tourism CD04 - Modern Eco-Tourism Design System (Fresh & Light Emerald Green)
+ * Tự động áp dụng cho website: Header, Shop Grid, Tour Cards, Pagination, Single Product, Footer.
+ */
+
+/* ==========================================================================
+   1. BIẾN THIẾT KẾ & TỔNG THỂ (DESIGN TOKENS & BASE)
+   ========================================================================== */
+:root {
+  /* Tông màu xanh tươi mát, sáng và hiện đại (loại bỏ hoàn toàn xanh đen/xanh rêu đậm) */
+  --et-primary: #16a34a;        /* Xanh lá tươi mát năng động (Emerald) */
+  --et-primary-hover: #15803d;  /* Xanh vừa khi rê chuột */
+  --et-primary-light: #dcfce7;  /* Xanh bạc hà nhạt làm nền */
+  --et-primary-soft: #f0fdf4;
+  --et-primary-glow: #22c55e;   /* Xanh tươi sáng làm điểm nhấn */
+  
+  --et-accent: #ea580c;         /* Cam đất nổi bật / Giá tiền */
+  --et-accent-hover: #c2410c;
+  
+  --et-bg-page: #f8fafc;        /* Nền trang web xám khói nhẹ thanh lịch */
+  --et-bg-card: #ffffff;        /* Thẻ trắng nổi bật */
+  --et-text: #1e293b;           /* Chữ xanh than sẫm dễ đọc */
+  --et-muted: #64748b;          /* Chữ phụ xám */
+  --et-border: #e2e8f0;         /* Viền sáng mỏng */
+  --et-border-hover: #cbd5e1;
+
+  --et-radius-sm: 6px;
+  --et-radius-md: 12px;         /* Chuẩn bo góc thẻ tour */
+  --et-radius-full: 9999px;     /* Chuẩn viên thuốc (Pill) */
+
+  --et-shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+  --et-shadow-card: 0 4px 14px -2px rgba(15, 23, 42, 0.07), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --et-shadow-hover: 0 16px 30px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -2px rgba(15, 23, 42, 0.05);
+}
+
+body {
+  background-color: var(--et-bg-page) !important;
+  color: var(--et-text) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. KHU VỰC HEADER & THANH ĐIỀU HƯỚNG (HEADER & NAVIGATION)
+   ========================================================================== */
+/* Nền Header xanh ngọc tươi sáng, chuyển màu nhẹ nhàng và tràn đầy sức sống */
+.site-header {
+  background: linear-gradient(135deg, #15803d 0%, #16a34a 50%, #22c55e 100%) !important;
+  border-bottom: 3px solid #86efac !important;
+  box-shadow: 0 4px 18px rgba(22, 163, 74, 0.25) !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+.site-branding .site-title a {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.site-branding .site-description {
+  color: #dcfce7 !important;
+  font-size: 0.9rem !important;
+  font-weight: 500;
+}
+
+/* Menu điều hướng chính */
+.main-navigation ul.menu > li > a,
+.main-navigation ul.nav-menu > li > a {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  padding: 0.65rem 1.1rem !important;
+  border-radius: var(--et-radius-sm);
+  transition: all 0.2s ease !important;
+}
+
+.main-navigation ul.menu > li > a:hover,
+.main-navigation ul.nav-menu > li > a:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.main-navigation ul.menu > li.current-menu-item > a,
+.main-navigation ul.nav-menu > li.current-menu-item > a {
+  background-color: rgba(255, 255, 255, 0.28) !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ô tìm kiếm nhanh trên Header */
+.site-search .widget_product_search input[type=search] {
+  background-color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  border-radius: var(--et-radius-full) !important;
+  padding: 0.6rem 1.25rem !important;
+  color: #1e293b !important;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+/* Giỏ hàng góc phải */
+.site-header-cart .cart-contents {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  padding: 0.6rem 1rem !important;
+  border-radius: var(--et-radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 0.2s;
+}
+
+.site-header-cart .cart-contents:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.site-header-cart .cart-contents .count {
+  background-color: var(--et-accent) !important;
+  color: #ffffff !important;
+  border-radius: 9999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+/* ==========================================================================
+   3. KHỐI TIÊU ĐỀ TRANG CỬA HÀNG & BỘ LỌC (SHOP TITLE & SORTING)
+   ========================================================================== */
+.woocommerce-products-header .woocommerce-products-header__title,
+.woocommerce-page h1.page-title {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  color: #1e293b !important; /* Chữ màu than sẫm sắc nét thay vì xanh đậm */
+  margin-bottom: 1.5rem !important;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: inline-block;
+}
+
+.woocommerce-products-header .woocommerce-products-header__title::after,
+.woocommerce-page h1.page-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 50px;
+  height: 4px;
+  background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%) !important;
+  border-radius: 2px;
+}
+
+/* Ô sắp xếp và số lượng kết quả */
+.woocommerce-result-count {
+  color: var(--et-muted) !important;
+  font-size: 0.95rem !important;
+  font-weight: 500;
+}
+
+.woocommerce-ordering select.orderby {
+  background-color: #ffffff !important;
+  border: 1px solid var(--et-border) !important;
+  border-radius: var(--et-radius-sm) !important;
+  padding: 0.55rem 1rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 500 !important;
+  color: var(--et-text) !important;
+  box-shadow: var(--et-shadow-sm) !important;
+  outline: none !important;
+  cursor: pointer;
+}
+
+.woocommerce-ordering select.orderby:focus {
+  border-color: var(--et-primary) !important;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15) !important;
+}
+
+/* ==========================================================================
+   4. LƯỚI SẢN PHẨM & THẺ TOUR CHUYÊN NGHIỆP (PRODUCT GRID & CARDS)
+   ========================================================================== */
+@media (min-width: 768px) {
+  .woocommerce ul.products,
+  .woocommerce-page ul.products,
+  .woocommerce ul.products.columns-4,
+  .woocommerce-page ul.products.columns-4 {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.75rem 1.25rem !important;
+    margin: 1.5rem 0 3rem 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .woocommerce ul.products,
+  .woocommerce-page ul.products {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem 1rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .woocommerce ul.products,
+  .woocommerce-page ul.products {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Xóa clearfix float */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after,
+.woocommerce-page ul.products::before,
+.woocommerce-page ul.products::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Từng thẻ tour (Product Card) */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  display: flex !important;
+  flex-direction: column !important;
+  float: none !important;
+  width: 100% !important;
+  margin: 0 !important;
+  height: 100% !important;
+
+  background-color: var(--et-bg-card) !important;
+  border: 1px solid var(--et-border) !important;
+  border-radius: var(--et-radius-md) !important;
+  padding: 0.85rem !important;
+  box-shadow: var(--et-shadow-card) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  overflow: hidden;
+}
+
+.woocommerce ul.products li.product:hover,
+.woocommerce-page ul.products li.product:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: var(--et-shadow-hover) !important;
+  border-color: #86efac !important; /* Viền xanh sáng nhẹ khi hover */
+}
+
+/* Link bao bọc sản phẩm */
+.woocommerce ul.products li.product .woocommerce-LoopProduct-link,
+.woocommerce-page ul.products li.product .woocommerce-LoopProduct-link {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1 !important;
+  position: relative !important;
+  text-decoration: none !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Ảnh tour vuông vức, bo góc nhẹ, zoom nhẹ khi rê chuột */
+.woocommerce ul.products li.product .woocommerce-LoopProduct-link img,
+.woocommerce ul.products li.product img {
+  width: 100% !important;
+  max-width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  margin: 0 0 0.85rem 0 !important;
+  display: block !important;
+  transition: transform 0.35s ease !important;
+}
+
+.woocommerce ul.products li.product:hover .woocommerce-LoopProduct-link img {
+  transform: scale(1.04);
+}
+
+/* Nhãn Sale nổi bật ở góc trên bên phải */
+.woocommerce ul.products li.product .onsale,
+.woocommerce-page ul.products li.product .onsale {
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  left: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  padding: 0.35em 0.75em !important;
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+  color: #ffffff !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  border: none !important;
+  border-radius: var(--et-radius-full) !important;
+  z-index: 5 !important;
+  line-height: 1 !important;
+  box-shadow: 0 4px 10px rgba(234, 88, 12, 0.4) !important;
+}
+
+/* Tiêu đề tour: Màu xanh than sẫm sang trọng dễ đọc, hover chuyển xanh tươi */
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #1e293b !important;
+  line-height: 1.4 !important;
+  min-height: 2.8em !important;
+  margin: 0 0 0.5rem 0 !important;
+  padding: 0 !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  text-align: center !important;
+  transition: color 0.2s ease;
+}
+
+.woocommerce ul.products li.product:hover .woocommerce-loop-product__title {
+  color: var(--et-primary) !important;
+}
+
+/* Giá tour: Màu cam đất nổi bật, căn giữa, thẳng hàng */
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price {
+  min-height: 2.2em !important;
+  margin: 0 0 0.85rem 0 !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 0.4rem !important;
+  color: var(--et-accent) !important;
+  font-weight: 800 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.3 !important;
+  text-align: center !important;
+}
+
+.woocommerce ul.products li.product .price del,
+.woocommerce-page ul.products li.product .price del {
+  color: var(--et-muted) !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+  opacity: 0.7 !important;
+}
+
+.woocommerce ul.products li.product .price ins,
+.woocommerce-page ul.products li.product .price ins {
+  text-decoration: none !important;
+  color: var(--et-accent) !important;
+  font-weight: 800 !important;
+}
+
+/* Nút bấm (Xem chi tiết / Thêm giỏ hàng): Gradient xanh tươi mát (Fresh Emerald) */
+.woocommerce ul.products li.product .button,
+.woocommerce-page ul.products li.product .button {
+  margin-top: auto !important;
+  width: 100% !important;
+  text-align: center !important;
+  display: block !important;
+  padding: 0.7rem 1rem !important;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  border-radius: var(--et-radius-sm) !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3) !important;
+  transition: all 0.2s ease !important;
+  box-sizing: border-box !important;
+  text-decoration: none !important;
+}
+
+.woocommerce ul.products li.product .button:hover,
+.woocommerce-page ul.products li.product .button:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.45) !important;
+  transform: translateY(-1px);
+  color: #ffffff !important;
+}
+
+/* ==========================================================================
+   5. THANH PHÂN TRANG HIỆN ĐẠI (MODERN PAGINATION)
+   ========================================================================== */
+.woocommerce-pagination {
+  border: none !important;
+  padding: 2.5rem 0 1rem 0 !important;
+  text-align: center !important;
+}
+
+.woocommerce-pagination ul.page-numbers {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.4rem !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+}
+
+.woocommerce-pagination ul.page-numbers li {
+  display: inline-block !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+.woocommerce-pagination ul.page-numbers li .page-numbers {
+  min-width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: var(--et-radius-sm) !important;
+  background-color: #ffffff !important;
+  border: 1px solid var(--et-border) !important;
+  color: #334155 !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  box-shadow: var(--et-shadow-sm) !important;
+  padding: 0 0.5rem !important;
+}
+
+.woocommerce-pagination ul.page-numbers li .page-numbers:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #86efac !important;
+  color: var(--et-primary) !important;
+}
+
+.woocommerce-pagination ul.page-numbers li .page-numbers.current {
+  background: var(--et-primary) !important;
+  border-color: var(--et-primary) !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35) !important;
+}
+
+.woocommerce-pagination ul.page-numbers li .page-numbers.dots {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* ==========================================================================
+   6. TRANG CHI TIẾT SẢN PHẨM (SINGLE TOUR PAGE)
+   ========================================================================== */
+.single-product div.product .woocommerce-product-gallery {
+  border-radius: var(--et-radius-md) !important;
+  overflow: hidden !important;
+  box-shadow: var(--et-shadow-card) !important;
+  background: #ffffff;
+}
+
+.single-product div.product .product_title {
+  font-size: 2rem !important;
+  font-weight: 800 !important;
+  color: #1e293b !important;
+  letter-spacing: -0.5px;
+  line-height: 1.3 !important;
+}
+
+.single-product div.product p.price {
+  color: var(--et-accent) !important;
+  font-size: 1.75rem !important;
+  font-weight: 800 !important;
+  margin: 1rem 0 !important;
+}
+
+/* Bảng chọn biến thể (Xe/Xuồng, Gói 1N/2N1Đ) */
+.single-product div.product table.variations select {
+  background-color: #ffffff !important;
+  border: 1.5px solid var(--et-border) !important;
+  border-radius: var(--et-radius-sm) !important;
+  padding: 0.65rem 1rem !important;
+  font-size: 0.95rem !important;
+  color: var(--et-text) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  box-shadow: var(--et-shadow-sm) !important;
+  outline: none !important;
+}
+
+.single-product div.product table.variations select:focus {
+  border-color: var(--et-primary) !important;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15) !important;
+}
+
+.single-product div.product form.cart .button {
+  background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%) !important;
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  padding: 0.85rem 2rem !important;
+  border-radius: var(--et-radius-sm) !important;
+  border: none !important;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35) !important;
+  transition: all 0.2s ease !important;
+}
+
+.single-product div.product form.cart .button:hover {
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* Tabs mô tả / đánh giá */
+.woocommerce-tabs ul.tabs {
+  border-bottom: 2px solid var(--et-border) !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.woocommerce-tabs ul.tabs li {
+  background: transparent !important;
+  border: none !important;
+  border-bottom: 3px solid transparent !important;
+  border-radius: 0 !important;
+}
+
+.woocommerce-tabs ul.tabs li a {
+  color: var(--et-muted) !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1.25rem !important;
+}
+
+.woocommerce-tabs ul.tabs li.active {
+  border-bottom-color: var(--et-primary) !important;
+}
+
+.woocommerce-tabs ul.tabs li.active a {
+  color: var(--et-primary) !important;
+}
+
+/* ==========================================================================
+   7. CHÂN TRANG (FOOTER)
+   ========================================================================== */
+.site-footer {
+  background: #0f172a !important; /* Xanh than sẫm sang trọng */
+  color: #94a3b8 !important;
+  padding: 3rem 0 2rem 0 !important;
+  border-top: 4px solid #22c55e !important;
+}
+
+.site-footer a {
+  color: #cbd5e1 !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: #4ade80 !important;
+}
+
+/* Dòng ghi chú bản quyền phục vụ học tập (YC10) */
+.etc-disclaimer,
+.site-info p.etc-disclaimer {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  border-radius: var(--et-radius-sm);
+  padding: 0.75rem 1.25rem;
+  color: #e2e8f0 !important;
+  text-align: center;
+  font-size: 0.85rem !important;
+  max-width: 800px;
+  margin: 1.5rem auto 0 auto !important;
+}

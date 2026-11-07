@@ -13,6 +13,10 @@ class Etour_Admin {
 
 	public static function register_menu() {
 		add_menu_page( 'Yêu cầu tư vấn', 'E-Tourism', self::CAP, 'etour-requests', array( __CLASS__, 'render_page' ), 'dashicons-palmtree', 26 );
+	}
+
+	// Đăng ký xử lý admin-post actions; được gọi từ hook 'admin_init' trong etour-cd04.php.
+	public static function register_actions() {
 		add_action( 'admin_post_etour_update_status', array( __CLASS__, 'handle_status' ) );
 		add_action( 'admin_post_etour_export_csv', array( __CLASS__, 'handle_export' ) );
 	}

@@ -1,0 +1,354 @@
+/* ============================================================
+   ETOUR CD04 – Styles theo mockup
+   ============================================================ */
+
+/* ---- Header mô tả trang ---- */
+.etour-seasons-header { margin-bottom: 1.5rem; }
+.etour-seasons-header__sub { color: #4b5563; font-size: .95rem; line-height: 1.6; max-width: 860px; }
+.etour-seasons-header__sub strong { color: #15803d; }
+
+/* ---- Khối chọn tháng ---- */
+.etour-month-section {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.etour-month-section__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.etour-month-section__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+
+.etour-month-section__tip {
+  font-size: .85rem;
+  color: #c65102;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: 6px;
+  padding: .4rem .75rem;
+  margin: 0;
+}
+
+/* ---- Thanh 12 tháng (2 hàng × 6 cột) ---- */
+.etour-month-bar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.etour-month-btn {
+  padding: .6rem .5rem;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: .9rem;
+  color: #374151;
+  text-align: center;
+  transition: all .15s;
+}
+
+.etour-month-btn:hover { background: #f0fdf4; border-color: #16a34a; color: #15803d; }
+
+.etour-month-btn.is-active {
+  background: #15803d;
+  color: #fff;
+  border-color: #15803d;
+}
+
+/* ---- Meta summary ---- */
+.etour-cd04__meta {
+  font-weight: 600;
+  color: #15803d;
+  font-size: .95rem;
+  margin: .5rem 0 1.5rem;
+  min-height: 1.5em;
+}
+
+/* ---- Lưới 2 cột: mùa vụ | tour ---- */
+.etour-seasons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .etour-seasons-grid { grid-template-columns: 1fr; }
+  .etour-month-bar { grid-template-columns: repeat(4, 1fr); }
+}
+
+.etour-seasons-grid__heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid #e2e8f0;
+  line-height: 1.4;
+}
+
+.etour-seasons-grid__heading small {
+  font-size: .8rem;
+  color: #6b7280;
+  font-weight: 400;
+}
+
+/* ---- Card mùa vụ ---- */
+.etour-season-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: .75rem;
+}
+
+.etour-season-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-bottom: .5rem;
+  flex-wrap: wrap;
+}
+
+.etour-season-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #15803d;
+  margin: 0;
+}
+
+.etour-badge { display: inline-block; font-size: .78rem; padding: .2rem .55rem; border-radius: 4px; font-weight: 600; white-space: nowrap; }
+.etour-badge--province { background: #fff7ed; color: #c65102; border: 1px solid #fed7aa; }
+
+.etour-season-card__desc {
+  font-size: .88rem;
+  color: #4b5563;
+  line-height: 1.5;
+  margin: 0 0 .75rem;
+}
+
+.etour-season-card__actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+/* ---- Card tour ---- */
+.etour-tour-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: .75rem;
+}
+
+.etour-tour-card__img-wrap img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: .5rem;
+}
+
+.etour-tour-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 .25rem;
+}
+
+.etour-tour-card__title a { color: #15803d; text-decoration: none; }
+.etour-tour-card__title a:hover { text-decoration: underline; }
+
+.etour-tour-card__meta { font-size: .8rem; color: #6b7280; margin: 0 0 .25rem; }
+
+.etour-tour-card__price {
+  font-size: .95rem;
+  font-weight: 700;
+  color: #c65102;
+  margin: 0 0 .75rem;
+}
+
+/* ---- Nút nhỏ ---- */
+.etour-btn-sm {
+  display: inline-block;
+  padding: .35rem .8rem;
+  border-radius: 6px;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all .15s;
+}
+
+.etour-btn-sm--outline {
+  background: #fff;
+  color: #15803d;
+  border-color: #15803d;
+}
+.etour-btn-sm--outline:hover { background: #f0fdf4; }
+
+.etour-btn-sm--primary {
+  background: #15803d;
+  color: #fff;
+  border-color: #15803d;
+}
+.etour-btn-sm--primary:hover { background: #166534; color: #fff; }
+
+.etour-btn-sm--green {
+  background: #15803d;
+  color: #fff !important;
+  border-color: #15803d;
+  display: block;
+  text-align: center;
+  padding: .5rem 1rem;
+}
+.etour-btn-sm--green:hover { background: #166534; }
+
+/* ---- Loading state ---- */
+.etour-loading { color: #9ca3af; font-style: italic; }
+
+/* ---- Alert ---- */
+.etour-alert { padding: .75rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.etour-alert--ok  { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.etour-alert--err { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* ============================================================
+   SECTION FORM TƯ VẤN
+   ============================================================ */
+.etour-consult-section {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.etour-consult-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #15803d;
+  margin: 0 0 .5rem;
+}
+
+.etour-consult-desc {
+  font-size: .85rem;
+  color: #6b7280;
+  margin: 0 0 1.5rem;
+}
+
+.etour-consult-desc code {
+  background: #f3f4f6;
+  padding: .1rem .3rem;
+  border-radius: 3px;
+  font-size: .82rem;
+}
+
+.etour-consult-submit {
+  background: #15803d;
+  color: #fff;
+  border: none;
+  padding: .75rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  transition: background .2s;
+}
+.etour-consult-submit:hover { background: #166534; }
+
+/* ============================================================
+   SIDEBAR TOÀN CỤC (đồng hồ + form tư vấn ngắn)
+   ============================================================ */
+.etour-global-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 2rem;
+}
+
+@media (max-width: 767px) {
+  .etour-global-sidebar { position: static; }
+}
+
+.etour-sidebar-box {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.etour-sidebar-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #15803d;
+  margin: 0 0 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid #dcfce7;
+}
+
+/* Hộp đếm ngược */
+.etour-countdown-desc { font-size: .85rem; color: #6b7280; margin: 0 0 .75rem; }
+
+.etour-countdown-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+  margin-bottom: .75rem;
+}
+
+.etour-countdown-unit {
+  display: flex; flex-direction: column; align-items: center;
+  background: #15803d; color: #fff;
+  border-radius: 6px; padding: .5rem .6rem; min-width: 52px;
+}
+
+.etour-countdown-num { font-size: 1.5rem; font-weight: 700; line-height: 1; }
+.etour-countdown-label { font-size: .65rem; margin-top: .2rem; opacity: .85; }
+.etour-countdown-sep { font-size: 1.5rem; font-weight: 700; color: #15803d; margin-bottom: 1rem; }
+.etour-countdown-note { font-size: .75rem; color: #9ca3af; margin: 0; font-style: italic; }
+
+/* Form tư vấn sidebar */
+.etour-consult-form .etour-field { display: flex; flex-direction: column; gap: .25rem; margin-bottom: .75rem; }
+.etour-consult-form label { font-size: .85rem; font-weight: 600; color: #374151; }
+.etour-consult-form input,
+.etour-consult-form select,
+.etour-consult-form textarea {
+  padding: .5rem .7rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font: inherit; font-size: .9rem; width: 100%;
+}
+.etour-consult-form input:focus,
+.etour-consult-form select:focus { outline: 3px solid #fcd34d; outline-offset: 1px; }
+
+/* ============================================================
+   SIDEBAR ẨN STOREFRONT – layout 2 cột cho trang có sidebar
+   ============================================================ */
+.etour-cd04-page {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .etour-cd04-page { grid-template-columns: 1fr; }
+}

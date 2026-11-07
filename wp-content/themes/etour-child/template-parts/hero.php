@@ -1,48 +1,46 @@
 <?php
 /**
- * Template part: Hero Banner Trang chủ
- * Chủ đề CD04: Miệt Vườn Xanh Tour
- * Chuẩn SEO (1 thẻ H1) và Khả năng tiếp cận WCAG 2.2
+ * Hero Banner Trang chủ – CD04 Miệt Vườn Xanh Tour
  */
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
-?>
+if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+// Đếm số tour đang publish
+$tour_count = 0;
+if ( function_exists( 'wc_get_products' ) ) {
+    $tour_count = count( wc_get_products( array( 'status' => 'publish', 'limit' => -1, 'return' => 'ids' ) ) );
+}
+$tour_label = $tour_count > 0 ? $tour_count . ' Tour' : '24 Tour';
+
+// URL trang shop + trang mùa vụ
+$shop_url    = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/cua-hang/' );
+$seasons_url = get_permalink( get_page_by_path( 'di-mien-tay-thang-nao' ) ) ?: home_url( '/di-mien-tay-thang-nao/' );
+?>
 <section class="cd04-hero" aria-labelledby="cd04-hero-title">
     <div class="cd04-hero__overlay">
         <div class="cd04-hero__container">
-            <span class="cd04-hero__badge"><?php echo esc_html__( 'DU LỊCH SINH THÁI TÂY NAM BỘ', 'etour-child' ); ?></span>
-            
+
+            <span class="cd04-hero__badge">DU LỊCH SỐ · DỰ ÁN E-TOURISM CD04</span>
+
             <h1 id="cd04-hero-title" class="cd04-hero__title">
-                <?php echo esc_html__( 'Khám Phá Miệt Vườn & Sông Nước Nam Bộ', 'etour-child' ); ?>
+                Khám phá Miệt vườn &amp; Chợ nổi Đồng bằng sông Cửu Long theo mùa
             </h1>
-            
+
             <p class="cd04-hero__desc">
-                <?php echo esc_html__( 'Trải nghiệm tự tay hái trái cây chín cây, chèo xuồng ba lá len lỏi rạch dừa và hòa mình vào nhịp sống chợ nổi đậm chất miền Tây.', 'etour-child' ); ?>
+                Mỗi tháng miền Tây lại có một mùa trái chín, mùa nước nổi hay lễ hội văn hóa đặc sắc.
+                Tra cứu lịch mùa vụ 12 tháng để chọn ngay hành trình xuồng máy hoặc xe khách phù hợp nhất cho gia đình bạn.
             </p>
 
-            <!-- Hàng nút bấm hành động (CTA Buttons) -->
             <div class="cd04-hero__actions">
-                <a href="<?php echo esc_url( home_url( '/tour/' ) ); ?>" class="button cd04-btn cd04-btn--primary">
-                    <?php echo esc_html__( 'Xem danh sách tour', 'etour-child' ); ?>
+                <a href="<?php echo esc_url( $seasons_url ); ?>"
+                   class="cd04-btn cd04-btn--primary">
+                    Tra cứu Đi miền Tây tháng nào?
                 </a>
-                <a href="<?php echo esc_url( home_url( '/di-mien-tay-thang-nao/' ) ); ?>" class="button cd04-btn cd04-btn--outline">
-                    <?php echo esc_html__( 'Đi miền Tây tháng nào?', 'etour-child' ); ?>
+                <a href="<?php echo esc_url( $shop_url ); ?>"
+                   class="cd04-btn cd04-btn--outline">
+                    Xem tất cả <?php echo esc_html( $tour_label ); ?> miệt vườn
                 </a>
             </div>
 
-            <!-- Form tìm kiếm tour nhanh bằng WooCommerce -->
-            <div class="cd04-hero__search">
-                <form role="search" method="get" class="cd04-search-box" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-                    <input type="hidden" name="post_type" value="product" />
-                    <label for="cd04-search-field" class="screen-reader-text"><?php echo esc_html__( 'Tìm tour miệt vườn', 'etour-child' ); ?></label>
-                    <input type="search" id="cd04-search-field" class="cd04-search-input" placeholder="<?php echo esc_attr__( 'Nhập tên tour, miệt vườn cần tìm...', 'etour-child' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
-                    <button type="submit" class="cd04-search-submit">
-                        <?php echo esc_html__( 'Tìm kiếm', 'etour-child' ); ?>
-                    </button>
-                </form>
-            </div>
         </div>
     </div>
 </section>
