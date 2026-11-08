@@ -1,44 +1,61 @@
 /**
  * Layout & Responsive - Chuẩn YC06 cho CD04 (Miệt Vườn Xanh)
  * 1. Triệt tiêu cuộn ngang ở màn hình 360px
- * 2. Lưới sản phẩm CSS Grid 1-2-3 cột
- * 3. Giao diện khối Hero Banner sinh thái
+ * 2. Hệ thống màu sắc sinh thái & Typography
+ * 3. Giao diện Hero Banner Miệt Vườn Xanh
+ * 4. Lưới sản phẩm CSS Grid (Mobile-First: 1-2-3 Cột)
+ * 5. Menu hai dòng chuẩn YC
+ * 6. Sidebar, Sections & Footer hiện đại
  */
 
 /* ==========================================================================
-   1. CHỐNG CUỘN NGANG MÀN HÌNH 360PX (YC06)
+   1. CHỐNG CUỘN NGANG MÀN HÌNH 360PX (YC06) & CẤU HÌNH CƠ BẢN
    ========================================================================== */
 html,
 body {
   overflow-x: hidden;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--c-bg, #f8fafc);
+  color: var(--c-text, #1e293b);
+  font-family: var(--f-base, 'Roboto', system-ui, -apple-system, sans-serif);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 /* ==========================================================================
-   2. KHỐI HERO BANNER TRANG CHỦ
+   2. KHỐI HERO BANNER TRANG CHỦ (MIỆT VƯỜN XANH)
    ========================================================================== */
 .cd04-hero {
-  /* Sử dụng chính bức ảnh xuồng chèo miệt vườn từ dataset */
+  /* Đường dẫn ảnh chính xác dẫn tới dataset CD04 */
   background-image: url('../../../../uploads/etour-dataset/CD04_mietvuon/images/cd04-001.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   background-repeat: no-repeat;
-  border-radius: var(--radius, 12px);
-  margin-bottom: var(--sp-8, 2rem);
+  border-radius: var(--radius, 16px);
+  margin-bottom: var(--sp-8, 2.5rem);
   overflow: hidden;
   position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* Lớp phủ tối mờ: Giúp chữ trắng đạt tương phản WCAG 2.2 AA (>= 4.5:1) */
+/* Lớp phủ chuyển màu gradient tối mờ: Đảm bảo độ tương phản WCAG 2.2 AA (>= 4.5:1) */
 .cd04-hero__overlay {
-  background: linear-gradient(180deg, rgba(15, 35, 20, 0.55) 0%, rgba(10, 25, 15, 0.75) 100%);
-  padding: clamp(2.5rem, 5vw, 5rem) 1.5rem;
+  background: linear-gradient(180deg, rgba(15, 35, 20, 0.6) 0%, rgba(10, 25, 15, 0.82) 100%);
+  padding: clamp(3rem, 6vw, 5.5rem) 1.5rem;
   text-align: center;
+  backdrop-filter: blur(2px);
 }
 
 .cd04-hero__container {
@@ -48,112 +65,122 @@ img {
 
 .cd04-hero__badge {
   display: inline-block;
-  background-color: var(--c-accent, #c65102);
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
   color: #ffffff;
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 1px;
-  padding: 0.35rem 1rem;
+  letter-spacing: 1.2px;
+  padding: 0.4rem 1.25rem;
   border-radius: var(--radius-full, 9999px);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(217, 119, 6, 0.35);
 }
 
 .cd04-hero__title {
   color: #ffffff !important;
-  font-size: var(--fs-xl, clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem));
+  font-size: var(--fs-xl, clamp(1.85rem, 1.3rem + 2.5vw, 3rem));
   font-weight: 800;
-  line-height: 1.25;
-  margin: 0 0 1rem 0;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+  margin: 0 0 1.25rem 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .cd04-hero__desc {
   color: #f1f5f9;
-  font-size: clamp(1rem, 1.1vw, 1.2rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  line-height: 1.65;
   max-width: 680px;
-  margin: 0 auto 1.75rem auto;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  margin: 0 auto 2rem auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Hàng nút bấm */
+/* Hàng nút bấm Hero */
 .cd04-hero__actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .cd04-btn {
-  padding: 0.75rem 1.75rem !important;
+  padding: 0.8rem 2rem !important;
   font-size: 1rem !important;
-  font-weight: 600 !important;
-  border-radius: var(--radius-sm, 6px) !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-sm, 8px) !important;
   text-decoration: none !important;
-  display: inline-block;
-  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .cd04-btn--primary {
-  background-color: var(--c-primary, #1b6e39) !important;
+  background: linear-gradient(135deg, var(--c-primary, #16a34a) 0%, #15803d 100%) !important;
   color: #ffffff !important;
-  border: 2px solid var(--c-primary, #1b6e39) !important;
+  border: 2px solid transparent !important;
 }
 
 .cd04-btn--primary:hover {
-  background-color: var(--c-primary-hover, #14532b) !important;
-  border-color: var(--c-primary-hover, #14532b) !important;
+  background: linear-gradient(135deg, #15803d 0%, #166534 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.4);
 }
 
 .cd04-btn--outline {
-  background-color: transparent !important;
+  background-color: rgba(255, 255, 255, 0.1) !important;
   color: #ffffff !important;
   border: 2px solid #ffffff !important;
+  backdrop-filter: blur(4px);
 }
 
 .cd04-btn--outline:hover {
   background-color: #ffffff !important;
-  color: var(--c-primary, #1b6e39) !important;
+  color: var(--c-primary, #15803d) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Ô tìm tour nhanh */
 .cd04-hero__search {
-  max-width: 520px;
+  max-width: 540px;
   margin: 0 auto;
 }
 
 .cd04-search-box {
   display: flex;
   width: 100%;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  border-radius: var(--radius-sm, 6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius-sm, 8px);
   overflow: hidden;
+  background: #ffffff;
 }
 
 .cd04-search-input {
   flex: 1;
-  padding: 0.85rem 1.25rem !important;
+  padding: 0.9rem 1.25rem !important;
   border: none !important;
   font-size: 1rem;
   outline: none;
-  background: #ffffff;
-  color: #1e293b;
+  background: transparent;
+  color: #0f172a;
 }
 
 .cd04-search-submit {
-  background-color: var(--c-primary, #1b6e39);
+  background: var(--c-primary, #16a34a);
   color: #ffffff;
   border: none;
-  padding: 0 1.5rem;
+  padding: 0 1.75rem;
   font-weight: 700;
+  font-size: 0.95rem;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s ease;
 }
 
 .cd04-search-submit:hover {
-  background-color: var(--c-primary-hover, #14532b);
+  background: #15803d;
 }
 
 /* ==========================================================================
@@ -164,39 +191,41 @@ img {
   display: grid;
   grid-template-columns: 1fr; /* Mobile <= 575px: 1 cột */
   gap: var(--sp-6, 1.5rem);
-  margin: 0 0 var(--sp-8, 2rem) 0;
+  margin: 0 0 var(--sp-8, 2.5rem) 0;
   padding: 0;
   list-style: none;
 }
 
-/* Bỏ hoàn toàn clearfix của float Storefront */
+/* Triệt tiêu hoàn toàn clearfix của Storefront float */
 .woocommerce ul.products::before,
 .woocommerce ul.products::after {
   content: none !important;
 }
 
-/* Từng thẻ tour (Card) */
+/* Thẻ Tour Card WooCommerce */
 .woocommerce ul.products li.product {
   float: none !important;
   width: 100% !important;
   margin: 0 !important;
 
   display: flex !important;
-  flex-direction: column !important; /* Nút xem tour luôn nằm đáy */
+  flex-direction: column !important;
 
-  background-color: var(--c-surface, #ffffff);
-  border: 1px solid var(--c-border, #e2e8f0);
-  border-radius: var(--radius, 12px);
-  padding: var(--sp-4, 1rem);
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius, 14px);
+  padding: var(--sp-4, 1.25rem);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   position: relative;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .woocommerce ul.products li.product:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(22, 163, 74, 0.12);
+  border-color: #bbf7d0;
 }
 
 .woocommerce ul.products li.product .woocommerce-LoopProduct-link {
@@ -207,36 +236,44 @@ img {
   position: relative !important;
 }
 
-/* Nhãn Sale cố định góc trên ảnh */
+/* Nhãn Sale / Khuyến mãi nổi bật */
 .woocommerce ul.products li.product .onsale {
   position: absolute !important;
-  top: 10px !important;
-  right: 10px !important;
+  top: 12px !important;
+  right: 12px !important;
   margin: 0 !important;
-  padding: 0.35em 0.7em !important;
-  background-color: var(--c-accent, #c65102) !important;
+  padding: 0.4em 0.8em !important;
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
   color: #ffffff !important;
   font-size: 0.75rem !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   text-transform: uppercase !important;
-  border-radius: 4px !important;
+  letter-spacing: 0.5px;
+  border-radius: 6px !important;
   line-height: 1 !important;
   z-index: 9 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Cắt ảnh tỉ lệ 1:1 đồng đều chống giật giao diện (CLS) */
+/* Cắt ảnh tỉ lệ 4:3 đồng đều chống giật giao diện (CLS) */
 .woocommerce ul.products li.product img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: calc(var(--radius, 12px) - 4px);
+  border-radius: calc(var(--radius, 14px) - 4px);
   width: 100%;
-  margin-bottom: var(--sp-3, 0.75rem);
+  margin-bottom: var(--sp-3, 0.85rem);
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.woocommerce ul.products li.product:hover img {
+  transform: scale(1.02);
 }
 
 .woocommerce ul.products li.product .woocommerce-loop-product__title {
-  font-size: var(--fs-md, 1.125rem);
-  color: var(--c-text, #19241c);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
   margin: 0 0 var(--sp-2, 0.5rem) 0;
   line-height: 1.4;
   min-height: 2.8em;
@@ -245,34 +282,59 @@ img {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-align: center;
+  text-align: left;
+  transition: color 0.2s ease;
+}
+
+.woocommerce ul.products li.product:hover .woocommerce-loop-product__title {
+  color: var(--c-primary, #16a34a);
 }
 
 .woocommerce ul.products li.product .price {
-  color: var(--c-accent, #c65102);
-  font-weight: 700;
-  font-size: 1.1rem;
-  margin-bottom: var(--sp-4, 1rem);
+  color: #c65102;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-bottom: var(--sp-4, 1.25rem);
   min-height: 2.2em;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 0.35rem;
-  text-align: center;
+  gap: 0.4rem;
 }
 
+.woocommerce ul.products li.product .price del {
+  color: #94a3b8;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.woocommerce ul.products li.product .price ins {
+  text-decoration: none;
+}
+
+/* Nút Đặt tour / Thêm vào giỏ */
 .woocommerce ul.products li.product .button {
   margin-top: auto !important;
   width: 100%;
   text-align: center;
-  border-radius: var(--radius-sm, 6px);
-  padding: 0.65em 1em;
+  background-color: var(--c-primary, #16a34a) !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  border-radius: var(--radius-sm, 8px) !important;
+  padding: 0.75em 1em !important;
   box-sizing: border-box;
+  transition: all 0.2s ease !important;
+  border: none !important;
+}
+
+.woocommerce ul.products li.product .button:hover {
+  background-color: #15803d !important;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
 }
 
 /* ==========================================================================
-   4. CÁC BREAKPOINTS ĐÁP ỨNG (Tablet & Desktop)
+   4. CÁC BREAKPOINTS RESPONSIVE (Tablet & Desktop)
    ========================================================================== */
 
 /* Tablet (576px - 991px): 2 cột */
@@ -292,10 +354,8 @@ img {
 }
 
 /* ==========================================================================
-   5. MENU HAI DÒNG – "Đi miền Tây tháng nào?" xuống hàng riêng (YC)
+   5. MENU HAI DÒNG (Chuẩn YC06 cho CD04)
    ========================================================================== */
-
-/* Desktop (≥768px): cho phép menu items wrap xuống 2 dòng */
 @media (min-width: 768px) {
   .main-navigation .primary-navigation ul.nav-menu {
     display: flex !important;
@@ -303,31 +363,30 @@ img {
     align-items: center;
   }
 
-  /* Item cuối cùng (Đi miền Tây tháng nào?) chiếm toàn bộ dòng thứ 2 */
+  /* Mục menu đặc thù xuống hàng riêng chiếm full-width */
   .main-navigation .primary-navigation ul.nav-menu > li:last-child {
     width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    padding-top: 0.25em;
-    margin-top: 0.1em;
+    border-top: 1px dashed rgba(255, 255, 255, 0.25);
+    padding-top: 0.35em;
+    margin-top: 0.25em;
   }
 }
 
 /* ==========================================================================
-   6. SIDEBAR TOÀN CỤC – Đồng hồ đếm ngược + Form tư vấn
+   6. SIDEBAR TOÀN CỤC
    ========================================================================== */
 .etour-global-sidebar {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-	position: sticky;
-	top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: sticky;
+  top: 2rem;
 }
 
-/* Trên mobile sidebar xuống dưới, không sticky */
 @media (max-width: 767px) {
-	.etour-global-sidebar {
-		position: static;
-	}
+  .etour-global-sidebar {
+    position: static;
+  }
 }
 
 /* ==========================================================================
@@ -344,164 +403,146 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .etc-featured-tours__title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  color: var(--c-text, #1e293b);
+  color: #0f172a;
   margin: 0;
+  position: relative;
+  padding-left: 0.85rem;
+  border-left: 4px solid var(--c-primary, #16a34a);
 }
 
 .etc-featured-tours__actions {
   display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 0.75rem;
 }
 
 .etc-featured-sort {
-  padding: .4rem .75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
-  font-size: .875rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.875rem;
   cursor: pointer;
+  outline: none;
+  background: #ffffff;
 }
 
 .etc-view-all-btn {
-  padding: .4rem 1rem;
+  padding: 0.45rem 1.25rem;
   border: 1px solid var(--c-primary, #16a34a);
   color: var(--c-primary, #16a34a);
   border-radius: 999px;
-  font-size: .875rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
-  transition: all .15s;
-}
-.etc-view-all-btn:hover {
-  background: var(--c-primary, #16a34a);
-  color: #fff;
+  transition: all 0.2s ease;
 }
 
-/* Grid 3 cột tour card */
+.etc-view-all-btn:hover {
+  background: var(--c-primary, #16a34a);
+  color: #ffffff;
+}
+
+/* Grid Tour nổi bật */
 .etc-featured-tours__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 @media (max-width: 900px) {
-  .etc-featured-tours__grid { grid-template-columns: repeat(2, 1fr); }
+  .etc-featured-tours__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (max-width: 576px) {
-  .etc-featured-tours__grid { grid-template-columns: 1fr; }
+  .etc-featured-tours__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* Tour card */
+/* Card Tour custom */
 .etc-tour-card {
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0,0,0,.05);
-  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s, box-shadow 0.25s;
   display: flex;
   flex-direction: column;
 }
+
 .etc-tour-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(22,163,74,.12);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(22, 163, 74, 0.12);
 }
 
 .etc-tour-card__img {
   position: relative;
-  aspect-ratio: 4/3;
-  background: linear-gradient(135deg, #15803d 0%, #713f12 100%);
+  aspect-ratio: 4 / 3;
   overflow: hidden;
 }
 
 .etc-tour-card__img img {
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.etc-tour-card__img-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, #15803d 60%, #92400e 100%);
-}
-
 .etc-tour-card__badge {
-  position: absolute; top: .5rem; left: .5rem;
-  background: #d97706; color: #fff;
-  font-size: .72rem; font-weight: 700;
-  padding: .2rem .5rem; border-radius: 4px;
-  text-transform: uppercase; z-index: 1;
-}
-
-.etc-tour-card__sku {
-  position: absolute; top: .5rem; left: .5rem;
-  font-size: .72rem; font-weight: 600; color: #fff;
-  background: rgba(0,0,0,.45);
-  padding: .15rem .4rem; border-radius: 3px;
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  background: #d97706;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  text-transform: uppercase;
   z-index: 1;
 }
 
-.etc-tour-card__badge + .etc-tour-card__sku,
-.etc-tour-card__badge ~ .etc-tour-card__sku {
-  top: 2rem;
-}
-
-.etc-tour-card__months {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: rgba(0,0,0,.55);
-  color: #fff; font-size: .72rem; font-weight: 500;
-  padding: .3rem .5rem;
-}
-
 .etc-tour-card__body {
-  padding: .85rem 1rem;
-  display: flex; flex-direction: column; gap: .3rem;
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
   flex: 1;
 }
 
-.etc-tour-card__cat {
-  display: inline-block;
-  background: #f0fdf4; color: #15803d;
-  font-size: .75rem; font-weight: 700;
-  padding: .15rem .45rem; border-radius: 4px;
-  border: 1px solid #bbf7d0;
-}
-
 .etc-tour-card__title {
-  font-size: .95rem; font-weight: 700; margin: .1rem 0;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
   line-height: 1.4;
 }
+
 .etc-tour-card__title a {
-  color: var(--c-text, #1e293b); text-decoration: none;
-}
-.etc-tour-card__title a:hover { color: var(--c-primary, #16a34a); }
-
-.etc-tour-card__tags { display: flex; flex-wrap: wrap; gap: .3rem; }
-.etc-tour-card__tag {
-  font-size: .72rem; color: #6b7280;
-  background: #f9fafb; border: 1px solid #e5e7eb;
-  padding: .1rem .4rem; border-radius: 4px;
+  color: #0f172a;
+  text-decoration: none;
 }
 
-.etc-tour-card__price { margin-top: auto; padding-top: .25rem; }
-.etc-tour-card__regular del { color: #9ca3af; font-size: .85rem; }
-.etc-tour-card__sale { color: var(--c-accent, #c65102); font-weight: 700; font-size: 1rem; }
-.etc-tour-card__sale .woocommerce-Price-amount { color: var(--c-accent, #c65102); }
+.etc-tour-card__title a:hover {
+  color: var(--c-primary, #16a34a);
+}
 
 /* ==========================================================================
-   8. FOOTER 3 CỘT (theo mockup)
+   8. FOOTER 3 CỘT (Theo Mockup)
    ========================================================================== */
 .etc-footer-widgets {
-  background: #1e1e1e;
-  color: #d1d5db;
-  padding: 3rem 0 1.5rem;
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 3.5rem 0 1.5rem;
+  margin-top: 3rem;
 }
 
 .etc-footer-widgets__inner {
@@ -509,42 +550,68 @@ img {
   margin: 0 auto;
   padding: 0 1.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
 }
 
 @media (max-width: 768px) {
-  .etc-footer-widgets__inner { grid-template-columns: 1fr; }
+  .etc-footer-widgets__inner {
+    grid-template-columns: 1fr;
+  }
 }
 
 .etc-footer-col__title {
-  color: #fff;
-  font-size: 1rem;
+  color: #ffffff;
+  font-size: 1.1rem;
   font-weight: 700;
-  margin: 0 0 .75rem;
+  margin: 0 0 1rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.etc-footer-col__title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--c-primary, #16a34a);
 }
 
 .etc-footer-col p {
-  font-size: .875rem;
+  font-size: 0.9rem;
   line-height: 1.65;
-  color: #9ca3af;
+  color: #94a3b8;
   margin: 0;
 }
 
 .etc-footer-col ul {
   list-style: none;
-  margin: 0; padding: 0;
-  display: flex; flex-direction: column; gap: .4rem;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.etc-footer-col ul li { font-size: .875rem; color: #9ca3af; }
-.etc-footer-col ul li::before { content: '• '; color: #6b7280; }
-.etc-footer-col ul a { color: #9ca3af; text-decoration: none; }
-.etc-footer-col ul a:hover { color: #fff; text-decoration: underline; }
+.etc-footer-col ul a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.etc-footer-col ul a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
 
 .etc-footer-divider {
-  border: none; border-top: 1px solid #374151;
-  max-width: 1200px; margin: 1.5rem auto 1rem;
+  border: none;
+  border-top: 1px solid #1e293b;
+  max-width: 1200px;
+  margin: 2rem auto 1rem;
 }
 
 .etc-disclaimer {
@@ -552,13 +619,13 @@ img {
   margin: 0 auto;
   padding: 0 1.5rem 1.5rem;
   text-align: center;
-  color: #d97706;
+  color: #f59e0b;
   font-weight: 600;
-  font-size: .9rem;
+  font-size: 0.875rem;
 }
 
 /* ==========================================================================
-   9. TRANG CỬA HÀNG – Full width, không có sidebar
+   9. TRANG CỬA HÀNG (Full Width - Không Sidebar)
    ========================================================================== */
 .woocommerce-shop .site-main,
 .woocommerce-page .site-main {
