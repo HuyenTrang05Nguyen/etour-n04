@@ -1,0 +1,2 @@
+2026-11-04T23:21:16+00:00 WARNING Email "admin_payment_gateway_enabled" failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"admin_payment_gateway_enabled","status":"failed","recipient":"HTrang","WC_Gateway_BACS":null}
+2026-11-04T23:21:28+00:00 WARNING Email "admin_payment_gateway_enabled" failed to send: Could not instantiate mail function. CONTEXT: {"email_type":"admin_payment_gateway_enabled","status":"failed","recipient":"HTrang","WC_Gateway_Cheque":null}
