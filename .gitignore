@@ -1,0 +1,38 @@
+﻿# WordPress core
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/xmlrpc.php
+/license.txt
+/readme.html
+
+# File nhạy cảm
+/wp-config.php
+/.htaccess
+*.sql
+*.sql.gz
+*.log
+*.bak
+
+# WooCommerce - R2
+/wp-content/plugins/woocommerce/
+/wp-content/uploads/
+
+# Theme WordPress mặc định
+/wp-content/themes/storefront/
+/wp-content/themes/twentytwentythree/
+/wp-content/themes/twentytwentyfour/
+/wp-content/themes/twentytwentyfive/
+
+# Plugin chức năng - R4
+/wp-content/plugins/etour-cd04/
+
+# Kiểm thử, báo cáo - R5
+/tests/
+/reports/
+
+# File tạm
+*.tmp
+.DS_Store
+Thumbs.db
